@@ -6,7 +6,7 @@
     "email": "sam.avanesoff@gmail.com"
   },
   "private": false,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/savanesoff/overdrag-react/issues"
@@ -49,7 +49,7 @@
     "test": "jest --config jestconfig.json"
   },
   "dependencies": {
-    "overdrag": "^0.2.3",
+    "overdrag": "^0.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
