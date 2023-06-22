@@ -6,7 +6,7 @@
     "email": "sam.avanesoff@gmail.com"
   },
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/savanesoff/overdrag-react/issues"
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/savanesoff/overdrag-react.git"
   },
-  "homepage": "https://savanesoff.github.io/overdrag-react",
+  "homepage": "https://savanesoff.github.io/overdrag-vanilla-demo",
   "keywords": [
     "drag",
     "resize",
