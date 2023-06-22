@@ -972,10 +972,10 @@ optionator@^0.9.1:
     type-check "^0.4.0"
     word-wrap "^1.2.3"
 
-overdrag@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/overdrag/-/overdrag-0.2.4.tgz#62d534de916bdf9e989a50942a74a9b7390dcba1"
-  integrity sha512-qXcIpR+YU4FDyk7ECdDhcDCX1rE5V2FXs5E1a002RhV9X2FRNPmHKXMFQNll3fH7Ef81upTd84pJq/JS3gq34Q==
+overdrag@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/overdrag/-/overdrag-0.2.5.tgz#087bdd68f19fb1a6cf82d32730841c97b7467a44"
+  integrity sha512-Rx8BsX40+nlwaZ2+yViQZbnadScdxPyp8crtI3UYhIALgYt87fNBI5KsspAv9P2rWzC4303xZml+1JjKr5RjOw==
   dependencies:
     eventemitter3 "^5.0.1"
 
