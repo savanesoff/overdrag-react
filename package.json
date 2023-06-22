@@ -1,0 +1,80 @@
+{
+  "name": "overdrag-react",
+  "description": "A React component with dragging and resizing capabilities",
+  "author": {
+    "name": "Samvel Avanesov",
+    "email": "sam.avanesoff@gmail.com"
+  },
+  "private": false,
+  "version": "0.1.0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/savanesoff/overdrag-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/savanesoff/overdrag-react.git"
+  },
+  "homepage": "https://savanesoff.github.io/overdrag-react",
+  "keywords": [
+    "drag",
+    "resize",
+    "control points",
+    "overdrag",
+    "motion",
+    "react",
+    "react-component",
+    "react-draggable",
+    "react-resizable"
+  ],
+  "packageManager": "^yarn@1.22.19",
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/index.js",
+  "scripts": {
+    "prepublish": "yarn run build",
+    "predeploy": "yarn run prepublish",
+    "clean": "rm -rf ./dist",
+    "build": "yarn run clean && yarn run build:esm",
+    "build:esm": "tsc -p ./tsconfig.json && mv ./dist/index.js ./dist/index.mjs",
+    "prepack": "yarn run build",
+    "test": "jest --config jestconfig.json"
+  },
+  "dependencies": {
+    "overdrag": "^0.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.mjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
