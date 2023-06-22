@@ -1,6 +1,6 @@
 {
   "name": "overdrag-react",
-  "description": "A React component with dragging and resizing capabilities",
+  "description": "A React component with dragging and resizing capabilities based on overdrag library",
   "author": {
     "name": "Samvel Avanesov",
     "email": "sam.avanesoff@gmail.com"
