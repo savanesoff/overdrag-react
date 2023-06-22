@@ -1,6 +1,6 @@
 by `Protosus`
 
-# Overdrag
+# Overdrag-React
 
 [![npm version](https://badge.fury.io/js/overdrag-react.svg)](https://badge.fury.io/js/overdrag-react)
 [![Build Status](https://github.com/savanesoff/overdrag-react/actions/workflows/test.yaml/badge.svg?branch=main&event=push)](https://github.com/savanesoff/overdrag-react/actions/workflows/test.yaml)
@@ -47,32 +47,33 @@ Render component anywhere in you app:
 
 ```tsx
 function App() {
-  return;
-  <Overdrag
-    /* optional props */
-    style={{ backgroundColor: "red" }}
-    minContentHeight={100}
-    minContentWidth={100}
-    snapThreshold={20}
-    controlsThreshold={20}
-    clickDetectionThreshold={5}
-    stack={true}
-    onClick={(overdragInstance) => console.log("clicked", overdragInstance)}
-    onDrag={(overdragInstance) => console.log("dragging", overdragInstance)}
-    // etc.. for many other available events
-    // onUp
-    // onOver
-    // onOut
-    // onResize
-    // onUpdate
-    // onControls[Active|Inactive]
-    // onControl[Right|Down|Up|Left]Update
-  >
-    <p>
-      This is a child component of Overdrag. Put here anything you want, just
-      like you would do to a `div`
-    </p>
-  </Overdrag>;
+  return (
+    <Overdrag
+      /* optional props */
+      style={{ backgroundColor: "red" }}
+      minContentHeight={100}
+      minContentWidth={100}
+      snapThreshold={20}
+      controlsThreshold={20}
+      clickDetectionThreshold={5}
+      stack={true}
+      onClick={(overdragInstance) => console.log("clicked", overdragInstance)}
+      onDrag={(overdragInstance) => console.log("dragging", overdragInstance)}
+      // etc.. for many other available events
+      // onUp
+      // onOver
+      // onOut
+      // onResize
+      // onUpdate
+      // onControls[Active|Inactive]
+      // onControl[Right|Down|Up|Left]Update
+    >
+      <p>
+        This is a child component of Overdrag. Put here anything you want, just
+        like you would do to a `div`
+      </p>
+    </Overdrag>
+  );
 }
 ```
 
