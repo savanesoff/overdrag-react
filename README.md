@@ -11,7 +11,7 @@ Overdrag is a library for adding draggable and resizable behavior to DOM element
 
 ## Demo
 
-You can view a live demo [here](https://savanesoff.github.io/overdrag-react-demo/)
+You can view a live demo [here](https://savanesoff.github.io/overdrag-vanilla-demo/)
 
 ![Validator](https://savanesoff.github.io/overdrag-vanilla-demo/assets/overdrag-npm-demo-animation-take1-63e16fc8.gif)
 
