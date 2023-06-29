@@ -1,10 +1,11 @@
 import Controls, { ControlProps, Events } from "overdrag";
 import React, { useEffect, useRef, useState } from "react";
 
+type EventNames = (typeof Events)[keyof typeof Events];
+type EventNamesOn = `on${Capitalize<Extract<EventNames, string>>}`;
+//keyof typeof Events
 type MyInterfaceProps = {
-  [key in `on${Capitalize<Extract<Events, string>>}`]?: (
-    instance: Controls
-  ) => void;
+  [key in EventNamesOn]?: (instance: Controls) => void;
 };
 type UseOverdragProps = Omit<ControlProps, "element"> & MyInterfaceProps;
 
@@ -62,10 +63,10 @@ function useOverdrag({
           // remove old event listener
           if (current && fn !== current) {
             // we are doing this to ensure that we don't add the same event listener twice and update the handler function due to React architecture
-            overdrag.off(eventName as Events, current);
+            overdrag.off(eventName as EventNames, current);
           }
           // add event listeners
-          overdrag.on(eventName as Events, fn);
+          overdrag.on(eventName as EventNames, fn);
         }
       }
     }
@@ -80,10 +81,8 @@ function useOverdrag({
   return [ref] as const;
 }
 
-export interface OverdragProps extends UseOverdragProps {
-  children?: React.ReactNode;
-  style?: React.CSSProperties;
-}
+export type OverdragProps = UseOverdragProps &
+  Omit<React.HTMLAttributes<HTMLAllCollection>, EventNamesOn>;
 
 /**
  * Overdrag React Component
