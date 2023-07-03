@@ -58,7 +58,7 @@ function useOverdrag({
             event.slice(2).charAt(0).toLowerCase() + event.slice(3);
           // get the handler function from props
           const fn = props[event as keyof MyInterfaceProps] as () => void;
-          // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
+          // @ts-expect-error - we are sure that this is not undefined
           const current = overdrag?._events[eventName]?.fn;
           // remove old event listener
           if (current && fn !== current) {
