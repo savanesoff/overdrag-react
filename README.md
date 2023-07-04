@@ -3,9 +3,7 @@ by `Protosus`
 # Overdrag-React
 
 [![npm version](https://badge.fury.io/js/overdrag-react.svg)](https://badge.fury.io/js/overdrag-react)
-
 [![Build Status](https://github.com/savanesoff/overdrag-react/actions/workflows/test.yaml/badge.svg?branch=main&event=push)](https://github.com/savanesoff/overdrag-react/actions/workflows/test.yaml)
-
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![HitCount](https://hits.dwyl.com/savanesov/overdrag-react.svg)](https://hits.dwyl.com/{username}/{project-name})
 
