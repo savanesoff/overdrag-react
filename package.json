@@ -46,7 +46,7 @@
     "build": "pnpm run clean && pnpm run build:esm",
     "build:esm": "tsc -p ./tsconfig.build.json && mv ./dist/index.js ./dist/index.mjs",
     "prepack": "pnpm run build",
-    "test": "vitest"
+    "test": "vitest --run"
   },
   "dependencies": {
     "overdrag": "^1.0.1",
