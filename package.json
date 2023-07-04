@@ -43,7 +43,7 @@
   "types": "./dist/types/index.d.ts",
   "main": "./dist/index.js",
   "scripts": {
-    "release": "pnpm build && pnpm test && pnpm prepublishOnly && pnpm changeset publish",
+    "release": "pnpm build && pnpm test && pnpm changeset publish",
     "prepublish": "pnpm run build",
     "predeploy": "pnpm run prepublish",
     "clean": "rm -rf ./dist",
