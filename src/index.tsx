@@ -12,6 +12,8 @@ type UseOverdragProps = Omit<ControlProps, "element"> & MyInterfaceProps;
 function useOverdrag({
   minContentHeight,
   minContentWidth,
+  maxContentHeight,
+  maxContentWidth,
   snapThreshold,
   controlsThreshold,
   clickDetectionThreshold,
@@ -23,13 +25,15 @@ function useOverdrag({
 
   // initialize overdrag only when ref is available and constructor params are changed
   useEffect(() => {
-    if (ref.current && ref.current.offsetParent) {
+    if (ref.current) {
       setOverdrag(
         new Controls({
           element: ref.current,
           ...{
             minContentHeight,
             minContentWidth,
+            maxContentHeight,
+            maxContentWidth,
             snapThreshold,
             controlsThreshold,
             clickDetectionThreshold,
@@ -45,6 +49,8 @@ function useOverdrag({
     stack,
     controlsThreshold,
     clickDetectionThreshold,
+    maxContentHeight,
+    maxContentWidth,
   ]);
 
   useEffect(() => {
