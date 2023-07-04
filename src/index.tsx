@@ -67,8 +67,11 @@ export type OverdragProps = UseOverdragProps &
 
 /**
  * Overdrag React Component
+ * A div element with overdrag functionality
+ * Use it as you would use a div element with any other props
  */
 export default function Overdrag({
+  // Overdrag events
   onDown,
   onUp,
   onClick,
@@ -87,6 +90,7 @@ export default function Overdrag({
   onResizeStart,
   onResizeEnd,
   onUpdate,
+  // Overdrag props
   minContentHeight,
   minContentWidth,
   maxContentHeight,
@@ -96,6 +100,7 @@ export default function Overdrag({
   clickDetectionThreshold,
   stack,
   excludePadding,
+  // React props
   children,
   ...props
 }: OverdragProps): JSX.Element {
@@ -186,6 +191,7 @@ export default function Overdrag({
     events,
     args,
   });
+
   return (
     <div ref={ref} {...props}>
       {children}
