@@ -23,7 +23,7 @@ function useOverdrag({
 
   // initialize overdrag only when ref is available and constructor params are changed
   useEffect(() => {
-    if (ref.current) {
+    if (ref.current && ref.current.offsetParent) {
       setOverdrag(
         new Controls({
           element: ref.current,
