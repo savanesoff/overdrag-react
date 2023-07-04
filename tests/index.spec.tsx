@@ -79,7 +79,34 @@ describe("Overdrag", () => {
 
   it('should assign event handlers to "on" props', () => {
     const handler = vi.fn();
-    render(<Overdrag onDragStart={handler}>Overdrag element</Overdrag>);
+    render(
+      <Overdrag onDragStart={handler} onOut={handler}>
+        Overdrag element
+      </Overdrag>
+    );
     expect(Controller.prototype.on).toHaveBeenCalledWith("dragStart", handler);
+    expect(Controller.prototype.on).toHaveBeenCalledWith("out", handler);
+  });
+
+  it('should not assign event handlers to "on" props if they are not functions', () => {
+    render(<Overdrag onDragStart={undefined}>Overdrag element</Overdrag>);
+    expect(Controller.prototype.on).not.toHaveBeenCalled();
+  });
+
+  it("should allow HTML div attributes to be passed to the element", () => {
+    const dataTestId = "overdrag";
+    render(<Overdrag data-testid={dataTestId}>Overdrag element</Overdrag>);
+    expect(screen.getByTestId(dataTestId)).toBeInTheDocument();
+  });
+
+  it("should allow style to be passed to the element", () => {
+    const style = { color: "grb(255,255,0)" };
+    const dataTestId = "overdrag";
+    render(
+      <Overdrag style={style} data-testid={dataTestId}>
+        Overdrag element
+      </Overdrag>
+    );
+    expect(screen.getByTestId(dataTestId)).toHaveStyle(style);
   });
 });
