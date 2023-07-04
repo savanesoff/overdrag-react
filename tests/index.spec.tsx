@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Controller from "overdrag";
 import Overdrag from "../src/index";
 
-function isNullOrUndefined(value: any): boolean {
+function isNullOrUndefined(value: unknown): boolean {
   return value === null || value === undefined;
 }
 
