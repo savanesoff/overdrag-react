@@ -2,18 +2,19 @@ by `Protosus`
 
 # Overdrag-React
 
-[![npm version](https://badge.fury.io/js/overdrag-react.svg)](https://badge.fury.io/js/overdrag-react)
+[![Github](https://badgen.net/badge/Protosus/overdrag-react?color=purple&icon=github)](https://github.com/savanesoff/overdrag-react)
 [![Build Status](https://github.com/savanesoff/overdrag-react/actions/workflows/test.yaml/badge.svg?branch=main&event=push)](https://github.com/savanesoff/overdrag-react/actions/workflows/test.yaml)
+[![npm version](https://badge.fury.io/js/overdrag-react.svg)](https://badge.fury.io/js/overdrag-react)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![HitCount](https://hits.dwyl.com/savanesov/overdrag-react.svg)](https://hits.dwyl.com/{username}/{project-name})
+[![Li](https://badgen.net/badge/savanesoff/LI?color=blue)](https://www.linkedin.com/in/samvel-avanesov)
 
 Overdrag is a library for adding draggable and resizable behavior to DOM elements that respects its parent and is recursive.
 
 ## Demo
 
-You can view a live demo [here](https://savanesoff.github.io/overdrag-vanilla-demo/)
+You can view a live demo [here](https://savanesoff.github.io/overdrag-react/)
 
-![Validator](https://savanesoff.github.io/overdrag-vanilla-demo/assets/overdrag-npm-demo-animation-take1-63e16fc8.gif)
+[![Validator](https://raw.githubusercontent.com/savanesoff/overdrag-react/main/public/overdrag-demo.gif)](https://savanesoff.github.io/overdrag-react)
 
 ## VanillaJS
 
@@ -23,21 +24,27 @@ Want a `VanillaJS` class? Checkout `Overdrag` utility [NPM](https://www.npmjs.co
 
 ## Installation
 
-To install Overdrag, use npm or yarn:
+[![NPM](https://nodei.co/npm/overdrag-react.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/overdrag-react/)
+
+To install `overdrag-react`, use p/npm yarn:
+
+- using `npm`
 
 ```shell
 npm install overdrag-react
 ```
 
-or
+- using `yarn`
 
 ```shell
 yarn add overdrag-react
 ```
 
-or
+- using `pnpm`
 
-[![NPM](https://nodei.co/npm/overdrag-react.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/overdrag-react/)
+```shell
+pnpm add overdrag-react
+```
 
 ## Usage
 
@@ -62,7 +69,7 @@ function App() {
     >
       <p>
         This is a child component of Overdrag. Put here anything you want, just
-        like you would do to a `div`
+        like you would do to a `div` or any other React component
       </p>
     </Overdrag>
   );
@@ -138,12 +145,12 @@ Controlled element is bound by its parent bounds and requires parent element to 
 
 While hovering near and/or over the edge of controlled element (left, right, top, bottom), that includes border sizes, a corresponding sensor will be activated. Pressing mouse down and initiating a drag will move corresponding edge of the element, thereby resizing it.
 
-> **_NOTE_**
+> **_NOTE_**  
 > Two adjacent sensors can be activated at once, ex: top-right, in which case dragging mouse around will resize both: width and height of controlled element.
 
 Maximum size is determined by the size of the offset parent, however, a margin values of controlled element are respected, so if controlled element has a right-margin value of `10` the max width of the element will be no larger than `offsetParent.width - 10px`
 
-> **_NOTE_**
+> **_NOTE_**  
 > See `maxContentWidth/Height` values
 
 ### Dragging
@@ -196,7 +203,7 @@ Say you want your element to change background color while its engaged, here is 
 
 At every point of interaction with a controlled element, mouse cursor style is set according to the mouse position relative to element control points and being over the content area.
 
-> **_NOTE_**
+> **_NOTE_**  
 > Mouse cursor is set as an element pointer style which should not interfere with a global cursor state. Moreover, the child DOM overrides are performed by default.
 
 - <span style="cursor:w-resize">**`w-resize`**</span>: Set while LEFT control sensor is activated (including sensitivity area)
@@ -221,6 +228,6 @@ At every point of interaction with a controlled element, mouse cursor style is s
 
 # PS
 
-Hit me up on [Li](https://www.linkedin.com/in/samvel-avanesov/)
+[![Li](https://badgen.net/badge/Hit%20me%20up%20on/LI?color=blue)](https://www.linkedin.com/in/samvel-avanesov)
 
 Enjoy! 🎉🎉🎉
