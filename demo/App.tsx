@@ -22,7 +22,7 @@ function App() {
           maxWidth: "100%",
         }}
       >
-        <Typography variant="h3">devtool-chopper demo </Typography>
+        <Typography variant="h3">overdrag-react demo </Typography>
         <Divider sx={{ width: "100%", margin: "1rem" }} />
         <img src="https://raw.githubusercontent.com/savanesoff/protosus/main/public/icons/by-protosus.svg" />
         <Divider sx={{ width: "100%", margin: "1rem" }} />
