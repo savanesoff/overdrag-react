@@ -1,5 +1,11 @@
 # overdrag-react
 
+## 2.0.1
+
+### Patch Changes
+
+- e2d9ff4: Readme file change paths and local gif assets
+
 ## 2.0.0
 
 ### Major Changes
