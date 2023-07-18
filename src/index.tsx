@@ -1,68 +1,22 @@
 import Controls, { ControlProps, Events } from "overdrag";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 type EventNames = (typeof Events)[keyof typeof Events];
+// Collect events belonging to Controls so we can filter them out for HTML props
 type EventNamesOn = `on${Capitalize<Extract<EventNames, string>>}`;
 //Enable all events with instance as parameter for intellisense
 type MyInterfaceProps = {
   [key in EventNamesOn]?: (instance: Controls) => void;
 };
-type UseOverdragProps = Omit<ControlProps, "element"> & MyInterfaceProps;
 
-function useOverdrag({
-  args,
-  events,
-}: {
-  args: Omit<ControlProps, "element">;
-  events: MyInterfaceProps;
-}) {
-  const [overdrag, setOverdrag] = useState<Controls>();
-  const ref = useRef<HTMLDivElement>(null);
-
-  // initialize overdrag only when ref is available and constructor params are changed
-  useEffect(() => {
-    if (ref.current) {
-      setOverdrag(
-        new Controls({
-          element: ref.current,
-          ...args,
-        })
-      );
-    }
-  }, [args]);
-
-  useEffect(() => {
-    if (overdrag) {
-      // find events in props and assign them to overdrag
-      for (const event in events) {
-        // first char to lowercase and remove "on"
-        const eventName =
-          event.slice(2).charAt(0).toLowerCase() + event.slice(3);
-        // get the handler function from events
-        const fn = events[event as keyof MyInterfaceProps] as () => void;
-        // @ts-expect-error - we are sure that this is not undefined
-        const current = overdrag?._events[eventName]?.fn;
-        // remove old event listener
-        if (current && fn !== current) {
-          // we are doing this to ensure that we don't add the same event listener twice and update the handler function due to React architecture
-          overdrag.off(eventName as EventNames, current);
-        }
-        // add event listeners
-        overdrag.on(eventName as EventNames, fn);
-      }
-    }
-    return () => {
-      if (overdrag) {
-        // remove all event listeners
-        overdrag.removeAllListeners();
-      }
-    };
-  }, [overdrag, events]);
-
-  return [ref] as const;
-}
-
-export type OverdragProps = UseOverdragProps &
+export type OverdragProps = Omit<ControlProps, "element"> &
+  MyInterfaceProps &
   Omit<React.HTMLAttributes<HTMLDivElement>, EventNamesOn>;
 
 /**
@@ -132,7 +86,6 @@ export default function Overdrag({
         delete events[key as keyof typeof events];
       }
     }
-
     return events;
   }, [
     onClick,
@@ -187,10 +140,47 @@ export default function Overdrag({
     snapThreshold,
     stack,
   ]);
-  const [ref] = useOverdrag({
-    events,
-    args,
-  });
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  const [overdrag, setOverdrag] = useState<Controls>();
+
+  const setEvents = useCallback(
+    (controls: Controls) => {
+      // find events in props and assign them to overdrag
+      for (const event in events) {
+        // first char to lowercase and remove "on"
+        const eventName =
+          event.slice(2).charAt(0).toLowerCase() + event.slice(3);
+        // get the handler function from events
+        const fn = events[event as keyof MyInterfaceProps] as () => void;
+        // @ts-expect-error - we are sure that this is not undefined
+        const current = controls?._events[eventName]?.fn;
+        // remove old event listener
+        if (current && fn !== current) {
+          // we are doing this to ensure that we don't add the same event listener twice and update the handler function due to React architecture
+          controls.off(eventName as EventNames, current);
+        }
+        // add event listeners
+        controls.on(eventName as EventNames, fn);
+      }
+    },
+    [events]
+  );
+
+  // initialize overdrag only when ref is available and constructor params are changed
+  useEffect(() => {
+    // if overdrag is already initialized or ref is not available or overdrag is already initialized
+    if (overdrag || !ref.current || ref.current.__overdrag) {
+      return;
+    }
+    const controls = new Controls({
+      element: ref.current,
+      ...args,
+    });
+    setEvents(controls);
+    setOverdrag(controls);
+  }, [args, overdrag, setEvents]);
 
   return (
     <div ref={ref} {...props}>

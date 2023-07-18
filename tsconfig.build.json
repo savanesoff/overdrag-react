@@ -1,5 +1,23 @@
 {
-  "extends": "./tsconfig.json",
-  "files": ["src/index.tsx"],
-  "exclude": ["tests/**/**"]
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM"],
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "outDir": "./dist",
+    "declarationDir": "./dist/types",
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": false,
+    "declaration": true,
+    "declarationMap": true,
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true
+  },
+  "include": ["./src/**/*"]
 }
