@@ -1,5 +1,11 @@
 # overdrag-react
 
+## 2.0.0
+
+### Major Changes
+
+- Fixing state change and overdrage upgrade
+
 ## 1.1.3
 
 ### Patch Changes
